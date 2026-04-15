@@ -2,9 +2,12 @@ package com.pokelauf.first_pokemonspring_api;
 
 import com.pokelauf.first_pokemonspring_api.configuration.PokemonConfiguration;
 import com.pokelauf.first_pokemonspring_api.domain.Pokemon;
+import com.pokelauf.first_pokemonspring_api.domain.Trainer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.function.Supplier;
 
 @SpringBootApplication
 
@@ -15,12 +18,14 @@ public class FirstPokemonspringApiApplication {
 
 		var context = new AnnotationConfigApplicationContext(PokemonConfiguration.class);
 
-		Pokemon p = context.getBean(Pokemon.class);
+		Trainer trainer = context.getBean(Trainer.class);
 
-		System.out.println(p.getName());
+		Pokemon pokemon = context.getBean(Pokemon.class);
 
-		String s = context.getBean(String.class);
-		System.out.println(s);
+		System.out.println("Trainer's name: " + trainer.getName());
+		System.out.println("Pokemon's name: " + pokemon.getName());
+
+		System.out.println("Trainer's pokemon: " + trainer.getPokemon());
 	}
 
 }

@@ -2,12 +2,15 @@ package com.pokelauf.first_pokemonspring_api.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.stereotype.Component;;
 
 @Getter
 @Setter
 @AllArgsConstructor
 
+@Component
 public class Pokemon
 {
     private int id;
@@ -53,5 +56,15 @@ public class Pokemon
     public void setPokedexEntry(String pokedexEntry)
     {
         this.pokedexEntry = pokedexEntry;
+    }
+
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", pokedexEntry='" + pokedexEntry + '\'' +
+                '}';
     }
 }
